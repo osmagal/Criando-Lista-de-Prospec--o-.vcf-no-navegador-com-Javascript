@@ -4,6 +4,7 @@
 //Clique em Console
 //Cole-o no Console do Navegador
 //Mantenha a página aberta para que os dados possam ser baixados
+//Esse código não foi testado em todos os navegadores, testado apenas no Chrome e no Edge para Desktop.
 
 function criarArquivoTxtEDownload(conteudo, nomeArquivo) {
     // Cria um Blob com o conteúdo do arquivo de texto
@@ -51,7 +52,7 @@ const nomeArquivo = busca + '.vcf';
 dadosContato.forEach(contato => {
     conteudoArquivo += 'BEGIN:VCARD\n' +
                       'VERSION:3.0\n' +
-                      'FN:' + contato.nomes[0] + '\n' +
+                      'FN:' + contato.nomes[0] + ' ' + busca + '\n' +
                       'TEL:' + contato.telefones[0] + '\n' +
                       'END:VCARD\n\n';
 });
@@ -68,7 +69,7 @@ function rolarScroll() {
     
     // Verifique se o contêiner existe e se o scroll ainda não atingiu o final
     if (container && container.scrollHeight > container.clientHeight + container.scrollTop) {
-        container.scrollTop += 500; // Ajuste o valor conforme necessário para controlar a quantidade de rolagem
+        container.scrollTop += 800; // Ajuste o valor conforme necessário para controlar a quantidade de rolagem
     } else {
         clearInterval(scrollInterval); // Pare o intervalo quando o scroll chegar ao final
 
@@ -78,5 +79,5 @@ function rolarScroll() {
 }
 
 // Defina um intervalo para chamar a função de rolagem automaticamente a cada 1000 milissegundos (1 segundo)
-const scrollInterval = setInterval(rolarScroll, 2000);
+const scrollInterval = setInterval(rolarScroll, 3000);
 
