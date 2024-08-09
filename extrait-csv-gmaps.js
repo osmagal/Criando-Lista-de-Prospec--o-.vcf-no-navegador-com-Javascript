@@ -46,11 +46,8 @@ function extrairDadosContato() {
     });
 
 const busca = document.querySelectorAll('.searchboxinput')[0].value;
-let conteudoArquivo = "name,phone,ct,st,country,gen";
+let conteudoArquivo = "fn,phone,ct,st,country,gen";
 const nomeArquivo = busca + '.csv';
-let cleanedPhoneNumber = contato.telefones[0].replace(/[\(\)\-\s]/g, '');
-// Adiciona o código do país +55
-let formattedPhoneNumber = '+55' + cleanedPhoneNumber;
 let ct = 'Curitiba';
 let st = 'PR';
 let country = 'BR';
@@ -58,7 +55,14 @@ let gen = 'F';
 
 // Escrever arquivo
 dadosContato.forEach(contato => {
-	conteudoArquivo += contato.nomes[0] + ',' + formattedPhoneNumber + ',' + ct + ',' + st + ',' + country + ',' + gen + '\n';
+	// Verifica se os dados de nome e telefone estão presentes e são válidos
+    if (contato.nomes && contato.nomes[0] && contato.telefones && contato.telefones[0]) {
+        // Formata o telefone removendo parênteses, hífen e espaços
+        let telefoneFormatado = '+55' + contato.telefones[0].replace(/[\(\)\-\s]/g, '');
+        
+        // Concatena as informações no formato correto
+        conteudoArquivo += contato.nomes[0] + ',' + telefoneFormatado + ',' + ct + ',' + st + ',' + country + ',' + gen + '\n';
+    }
 });
 
 criarArquivoTxtEDownload(conteudoArquivo, nomeArquivo);
