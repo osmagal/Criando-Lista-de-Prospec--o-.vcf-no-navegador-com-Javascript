@@ -61,7 +61,8 @@ dadosContato.forEach(contato => {
         let telefoneFormatado = '+55' + contato.telefones[0].replace(/[\(\)\-\s]/g, '');
         
         // Concatena as informações no formato correto
-        conteudoArquivo += contato.nomes[0] + ',' + telefoneFormatado + ',' + ct + ',' + st + ',' + country + ',' + gen + '\n';
+        //conteudoArquivo += contato.nomes[0] + ',' + telefoneFormatado + ',' + ct + ',' + st + ',' + country + ',' + gen + '\n\n';
+	conteudoArquivo += telefoneFormatado + ',' + ct + ',' + st + ',' + country + ',' + gen + '\n\n';
     }
 });
 
