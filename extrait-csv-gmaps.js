@@ -5,6 +5,7 @@
 //Cole-o no Console do Navegador
 //Mantenha a página aberta para que os dados possam ser baixados
 //Esse código não foi testado em todos os navegadores, testado apenas no Chrome e no Edge para Desktop.
+//Feito especialmente para uso de Listas no MetaBusiness
 
 function criarArquivoTxtEDownload(conteudo, nomeArquivo) {
     // Cria um Blob com o conteúdo do arquivo de texto
@@ -45,12 +46,19 @@ function extrairDadosContato() {
     });
 
 const busca = document.querySelectorAll('.searchboxinput')[0].value;
-var conteudoArquivo = "name,phone";
+let conteudoArquivo = "name,phone,ct,st,country,gen";
 const nomeArquivo = busca + '.csv';
+let cleanedPhoneNumber = contato.telefones[0].replace(/[\(\)\-\s]/g, '');
+// Adiciona o código do país +55
+let formattedPhoneNumber = '+55' + cleanedPhoneNumber;
+let ct = 'Curitiba';
+let st = 'PR';
+let country = 'BR';
+let gen = 'F';
 
 // Escrever arquivo
 dadosContato.forEach(contato => {
-	conteudoArquivo += contato.nomes[0] + ',' + contato.telefones[0] + '\n';
+	conteudoArquivo += contato.nomes[0] + ',' + formattedPhoneNumber + ',' + ct + ',' + st + ',' + country + ',' + gen + '\n';
 });
 
 criarArquivoTxtEDownload(conteudoArquivo, nomeArquivo);
