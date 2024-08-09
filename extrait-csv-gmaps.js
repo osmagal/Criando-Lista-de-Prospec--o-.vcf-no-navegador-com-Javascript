@@ -46,11 +46,11 @@ function extrairDadosContato() {
 
 const busca = document.querySelectorAll('.searchboxinput')[0].value;
 var conteudoArquivo = "name,phone";
-const nomeArquivo = busca + '.vcf';
+const nomeArquivo = busca + '.csv';
 
 // Escrever arquivo
 dadosContato.forEach(contato => {
-    conteudoArquivo += contato.nomes[0] + ',' + contato.telefones[0] + '/n';
+	conteudoArquivo += contato.nomes[0] + ',' + contato.telefones[0] + '\n';
 });
 
 criarArquivoTxtEDownload(conteudoArquivo, nomeArquivo);
