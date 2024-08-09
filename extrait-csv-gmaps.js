@@ -46,7 +46,7 @@ function extrairDadosContato() {
     });
 
 const busca = document.querySelectorAll('.searchboxinput')[0].value;
-let conteudoArquivo = "fn,phone,ct,st,country,gen";
+let conteudoArquivo = "fn,phone,ct,st,country,gen\n";
 const nomeArquivo = busca + '.csv';
 let ct = 'Curitiba';
 let st = 'PR';
@@ -61,7 +61,7 @@ dadosContato.forEach(contato => {
         let telefoneFormatado = '+55' + contato.telefones[0].replace(/[\(\)\-\s]/g, '');
         
         // Concatena as informações no formato correto
-        //conteudoArquivo += contato.nomes[0] + ',' + telefoneFormatado + ',' + ct + ',' + st + ',' + country + ',' + gen + '\n\n';
+        //conteudoArquivo += contato.nomes[0] + ',' + telefoneFormatado + ',' + ct + ',' + st + ',' + country + ',' + gen + '\n';
 	conteudoArquivo += telefoneFormatado + ',' + ct + ',' + st + ',' + country + ',' + gen + '\n\n';
     }
 });
