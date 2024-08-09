@@ -62,7 +62,7 @@ dadosContato.forEach(contato => {
         
         // Concatena as informações no formato correto
         //conteudoArquivo += contato.nomes[0] + ',' + telefoneFormatado + ',' + ct + ',' + st + ',' + country + ',' + gen + '\n';
-	conteudoArquivo += telefoneFormatado + ',' + ct + ',' + st + ',' + country + ',' + gen + '\n\n';
+	conteudoArquivo += telefoneFormatado + ',' + ct + ',' + st + ',' + country + ',' + gen + '\n';
     }
 });
 
