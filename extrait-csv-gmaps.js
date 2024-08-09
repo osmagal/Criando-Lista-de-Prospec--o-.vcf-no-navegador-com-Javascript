@@ -46,7 +46,8 @@ function extrairDadosContato() {
     });
 
 const busca = document.querySelectorAll('.searchboxinput')[0].value;
-let conteudoArquivo = "fn,phone,ct,st,country,gen\n";
+//let conteudoArquivo = "fn,phone,ct,st,country,gen\n";
+let conteudoArquivo = "phone,ct,st,country,gen\n";
 const nomeArquivo = busca + '.csv';
 let ct = 'Curitiba';
 let st = 'PR';
